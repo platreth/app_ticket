@@ -15,7 +15,7 @@ class HelloWorldController extends Controller
     {
 
         return new Response(
-            "<html><body>Hello " . $name . "</body></html>"
+            "<html><body>Bonjour " . $name . "</body></html>"
         );
     }
 

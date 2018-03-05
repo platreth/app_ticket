@@ -18,7 +18,7 @@ class MainController extends Controller
     {
     	
     	
-        return $this->render("main/home.html.twig", ["project_name" => "PLATRET"]);       
+        return $this->render("main/home.html.twig", ["project_name" => "TICKET"]);       
     }
 
 }
