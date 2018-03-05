@@ -4,21 +4,18 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route; //add this line to add usage of Route class.
-
-
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class MainController extends Controller
 {
-	
- /**
-  * @Route("/", name="app_home")
-  */
- public function homeAction()
+
+    /**
+     * @Route("/", name="app_home") //add this comment to annotations
+     * @Template("main/home.html.twig")
+     */
+    public function homeAction()
     {
-    	
-    	
-        return $this->render("main/home.html.twig", ["project_name" => "TICKET"]);       
+		return ["project_name" => "Accueil"];
     }
 
 }
