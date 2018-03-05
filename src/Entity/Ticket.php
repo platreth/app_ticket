@@ -21,7 +21,7 @@ class Ticket
  /**
  * @ORM\Column(type="text", length=255)
  */
-private $name;
+private $title;
 
 /**
  * @ORM\Column(type="datetime")
@@ -33,14 +33,14 @@ private $releaseOn;
         return $this->id;
     }
 
-    public function getName()
+    public function getTitle()
     {
-        return $this->name;
+        return $this->title;
     }
 
-    public function setName($name)
+    public function setTitle($title)
     {
-        $this->name = $name;
+        $this->title = $title;
     }
       public function getReleaseOn()
     {

@@ -16,7 +16,7 @@ use App\Entity\Ticket;
  */
 
 
-class GererTicketController extends Controller
+class TicketController extends Controller
 {
 /**
  * @Route("/add", name="ticket.add")
@@ -28,7 +28,7 @@ class GererTicketController extends Controller
   {
 $ticket = new Ticket();
 $form = $this->createFormBuilder($ticket)
-    ->add("name", TextType::class)
+    ->add("title", TextType::class)
     ->add("releaseOn", DateType::class, [
         "widget" => "single_text"
     ])
@@ -94,7 +94,7 @@ return $this->redirectToRoute('ticket.all');
 	public function update(Ticket $ticket, Request $request)  
 	{
 	$form = $this->createFormBuilder($ticket)
-	    ->add("name", TextType::class)
+	    ->add("title", TextType::class)
 	    ->add("releaseOn", DateType::class, [
 	        "widget" => "single_text"
 	    ])

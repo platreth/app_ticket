@@ -2,13 +2,13 @@
 
 {% block body %}
     {{ form_start(form) }}
-    {{ form_row(form.name) }}
+    {{ form_row(form.title) }}
     {{ form_row(form.releaseOn) }}
     {{ form_end(form) }}
  <div>
-    {{ form_label(form.name) }}
-    {{ form_errors(form.name) }}
-    {{ form_widget(form.name) }}
+    {{ form_label(form.title) }}
+    {{ form_errors(form.title) }}
+    {{ form_widget(form.title) }}
  </div>
 
 {% endblock %}
