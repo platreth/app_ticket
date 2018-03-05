@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <h1>BLOG !!!</h1>
+
+
+<p> Le singe kefozekogkzopgkpozkgpzkgpzkgpzkgpkerpgkrpgkp </p>
+
+
+{% for user in tableau %}
+
+     <a href="{{ path('blog_name', { 'name_blog': user.title }) }}"> <li>{{ user.title }}</li></a>
+
+{% endfor %}
+
+
+  {% endblock %}
