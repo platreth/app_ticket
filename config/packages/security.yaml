@@ -6,10 +6,15 @@ security:
             security: false
         main:
             pattern:    ^/   # regex of the path the firewall applies to - here everything
-            http_basic: ~    # use http basic for login
+            # http_basic: ~    # use http basic for login
             provider: my_db_provider # it specifies what provider to use.
             anonymous: ~
-
+            form_login:
+                login_path: login
+                check_path: login
+            logout:
+                path:   /logout
+                target: /
             # activate different ways to authenticate
 
             # http_basic: true
@@ -23,7 +28,8 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        - { path: ^/public, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, roles: ROLE_USER }
     encoders:
         App\Entity\User:

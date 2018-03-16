@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id
@@ -53,49 +53,49 @@ private $plainPassword;
     }
 
 
-public function getId()
+    public function getId()
     {
         return $this->id;
     }
 
     public function getUsername()
     {
-        return $this->Username;
+        return $this->username;
     }
 
     public function setUsername($username)
     {
-        $this->Username = $Username;
+        $this->username = $username;
     }
 
      public function getEmail()
     {
-        return $this->Email;
+        return $this->email;
     }
 
     public function setEmail($email)
     {
-        $this->Email = $Email;
+        $this->email = $email;
     }
 
        public function getPassword()
     {
-        return $this->Email;
+        return $this->password;
     }
 
     public function setPassword($password)
     {
-        $this->Password = $Password;
+        $this->password = $password;
     }
 
     public function getRoles()
     {
-        return $this->Email;
+        return $this->roles;
     }
 
     public function setRoles($roles)
     {
-        $this->Roles = $Roles;
+        $this->roles = $roles;
     }
     public function getSalt()
     {
