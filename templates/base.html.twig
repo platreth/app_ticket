@@ -12,6 +12,9 @@
             <ul>
                 <li><a href="{{ path('app_home') }}">Home</a></li>
                 <li><a href="{{ path('ticket.add') }}">Tickets</a></li>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li><a href="{{ path('logout') }}">Se déconnecter</a></li>
+                {% endif %}
             </ul>
         </div>
         {% block body %}{% endblock %}
@@ -19,7 +22,7 @@
         {% block blog_accueil %}{% endblock %}
          <footer>
             <hr/>
-            Système de gestion des tickets
+            &copy; hugo
         </footer>
         {% block javascripts %}{% endblock %}
 </body>
