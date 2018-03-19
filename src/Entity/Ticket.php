@@ -52,6 +52,12 @@ private $description;
  */
 private $probleme;
 
+
+/**
+ * @ORM\Column(type="choicetype", length=20)
+ */
+private $date;
+
     public function getId()
     {
         return $this->id;
@@ -85,6 +91,16 @@ private $probleme;
     public function setProbleme($probleme)
     {
         $this->probleme = $probleme;
+    }
+
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    public function setDate($date)
+    {
+        $this->date = $date;
     }
 
 

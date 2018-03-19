@@ -34,9 +34,17 @@ $form = $this->createFormBuilder($ticket)
    	->add("description", TextareaType::class)
    	->add("probleme", ChoiceType::class, array(
     'choices' => array(
-        'Matériel' => true,
-        'Logiciel' => false,
+        'Matériel' => 'materiel',
+        'Logiciel' => 'logiciel',
     )))
+    ->add("date", ChoiceType::class, array(
+    'choices' => array(
+        'maintenant' => new \DateTime('now'),
+        'demain' => new \DateTime('+1 day'),
+        '1 semaine' => new \DateTime('+1 week'),
+        '1 mois' => new \DateTime('+1 month'),
+    )))
+    // ->add('Piece jointe', FileType::class);
     ->add("save", SubmitType::class, ["label" => "Créer le ticket"])
     ->getForm();
 $form->handleRequest($request);
