@@ -3,9 +3,10 @@
 {% block body %}
     {{ form_start(form) }}
     {{ form_row(form.title) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.probleme) }}
     {{ form_end(form) }}
  <div>
-    {{ form_label(form.title) }}
     {{ form_errors(form.title) }}
     {{ form_widget(form.title) }}
  </div>

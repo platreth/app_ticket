@@ -36,7 +36,6 @@ class Ticket
      */
     private $id;
 
-    // add your own fields
 
  /**
  * @ORM\Column(type="text", length=255)
@@ -44,11 +43,16 @@ class Ticket
 private $title;
 
 /**
- * @ORM\Column(type="datetime")
+ * @ORM\Column(type="text", length=1000)
  */
-private $releaseOn;
+private $description;
 
- public function getId()
+/**
+ * @ORM\Column(type="choicetype", length=20)
+ */
+private $probleme;
+
+    public function getId()
     {
         return $this->id;
     }
@@ -62,13 +66,26 @@ private $releaseOn;
     {
         $this->title = $title;
     }
-      public function getReleaseOn()
+
+    public function getDescription()
     {
-        return $this->releaseOn;
+        return $this->description;
     }
 
-    public function setReleaseOn($releaseOn)
+    public function setDescription($description)
     {
-        $this->releaseOn = $releaseOn;
+        $this->description = $description;
     }
+
+    public function getProbleme()
+    {
+        return $this->probleme;
+    }
+
+    public function setProbleme($probleme)
+    {
+        $this->probleme = $probleme;
+    }
+
+
 }
