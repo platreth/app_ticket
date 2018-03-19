@@ -4,10 +4,16 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- */
+ * @UniqueEntity(
+ *     fields={"username"},
+ *     message="Le nom d'utilisateur ou l'email est déjà utilisé"
+ * )
+*/
 class User implements UserInterface
 {
     /**
@@ -17,15 +23,15 @@ class User implements UserInterface
      */
     private $id;
 
-    // add your own fields
 
-    /**
- * @ORM\Column(type="text", length=255)
+/**
+ * @ORM\Column(name="username", type="text", length=255, unique=true)
+ * @Assert\NotBlank()
  */
 private $username;
 
 /**
- * @ORM\Column(type="text", length=255)
+ * @ORM\Column(name="email", type="text", length=255, unique=true)
  */
 private $email;
 
