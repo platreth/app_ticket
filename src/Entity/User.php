@@ -6,21 +6,50 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity(
  *     fields={"username"},
- *     message="Le nom d'utilisateur ou l'email est déjà utilisé"
+ *     message="Le nom d'utilisateur est déjà utilisé"
+ * )
+ * @UniqueEntity(
+ *     fields={"email"},
+ *     message="L'email est déjà utilisé"
  * )
 */
 class User implements UserInterface
 {
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="category")
+     */
+    private $tickets;
+
+    public function __construct()
+    {
+        $this->tickets = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|Ticket[]
+     */
+    public function getTickets()
+    {
+        return $this->tickets;
+    }
+
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
+
+
     private $id;
 
 
@@ -32,6 +61,7 @@ private $username;
 
 /**
  * @ORM\Column(name="email", type="text", length=255, unique=true)
+ * @Assert\NotBlank()
  */
 private $email;
 

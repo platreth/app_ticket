@@ -9,6 +9,26 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Ticket
 {
+
+    // ...
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="products")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $user;
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+    }
+
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
