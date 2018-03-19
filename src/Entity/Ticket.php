@@ -47,6 +47,11 @@ private $title;
  */
 private $description;
 
+/**
+ * @ORM\Column(type="choicetype", length=20)
+ */
+private $probleme;
+
     public function getId()
     {
         return $this->id;
@@ -70,6 +75,16 @@ private $description;
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    public function getProbleme()
+    {
+        return $this->probleme;
+    }
+
+    public function setProbleme($probleme)
+    {
+        $this->probleme = $probleme;
     }
 
 
