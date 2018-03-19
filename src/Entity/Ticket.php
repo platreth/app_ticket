@@ -13,7 +13,7 @@ class Ticket
     // ...
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="products")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="users")
      * @ORM\JoinColumn(nullable=true)
      */
     private $user;
