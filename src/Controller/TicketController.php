@@ -32,7 +32,12 @@ $ticket = new Ticket();
 $form = $this->createFormBuilder($ticket)
     ->add("title", TextType::class)
    	->add("description", TextareaType::class)
-   	->add("probleme", ChoiceType::class)
+   	->add("probleme", ChoiceType::class, array(
+    'choices' => array(
+        '1' => null,
+        '2' => true,
+        '3' => false,
+    )))
     ->add("save", SubmitType::class, ["label" => "Créer le ticket"])
     ->getForm();
 $form->handleRequest($request);
