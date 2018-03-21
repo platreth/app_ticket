@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route; //add this line to add usage of Route class.
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -30,6 +31,7 @@ class TicketController extends Controller
   {
 $ticket = new Ticket();
 $form = $this->createFormBuilder($ticket)
+<<<<<<< HEAD
     ->add("title", TextType::class, array(
     		'label' => 'Titre'
     	))
@@ -44,6 +46,23 @@ $form = $this->createFormBuilder($ticket)
 	        'Problème matériel' => false,
 	    )
 	))
+=======
+    ->add("title", TextType::class)
+   	->add("description", TextareaType::class)
+   	->add("probleme", ChoiceType::class, array(
+    'choices' => array(
+        'Matériel' => 'materiel',
+        'Logiciel' => 'logiciel',
+    )))
+    ->add("date", ChoiceType::class, array(
+    'choices' => array(
+        'maintenant' => new \DateTime('now'),
+        'demain' => new \DateTime('+1 day'),
+        '1 semaine' => new \DateTime('+1 week'),
+        '1 mois' => new \DateTime('+1 month'),
+    )))
+    // ->add('Piece jointe', FileType::class);
+>>>>>>> 79dd98e3bc85d42017ba381ebf547dc9f715a3c8
     ->add("save", SubmitType::class, ["label" => "Créer le ticket"])
     ->getForm();
 $form->handleRequest($request);
