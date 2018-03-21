@@ -47,6 +47,11 @@ private $title;
  */
 private $description;
 
+/**
+ * @ORM\Column(type="text", length=50)
+ */
+private $problemeType;
+
     public function getId()
     {
         return $this->id;
@@ -70,7 +75,15 @@ private $description;
     public function setDescription($description)
     {
         $this->description = $description;
+	}
+
+	public function getProblemeType()
+    {
+        return $this->problemeType;
     }
 
-
+    public function setProblemeType($problemeType)
+    {
+        $this->problemeType = $problemeType;
+    }
 }

@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route; //add this line to add usage of 
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,8 +30,20 @@ class TicketController extends Controller
   {
 $ticket = new Ticket();
 $form = $this->createFormBuilder($ticket)
-    ->add("title", TextType::class)
-   	->add("description", TextareaType::class)
+    ->add("title", TextType::class, array(
+    		'label' => 'Titre'
+    	))
+   	->add("description", TextareaType::class, array(
+    		'label' => 'Description'
+    	))
+   	->add("problemeType", ChoiceType::class, array(
+   		'label' => 'Type de problème',
+	    'choices'  => array(
+	        '' => null,
+	        'Problème logiciel' => true,
+	        'Problème matériel' => false,
+	    )
+	))
     ->add("save", SubmitType::class, ["label" => "Créer le ticket"])
     ->getForm();
 $form->handleRequest($request);
