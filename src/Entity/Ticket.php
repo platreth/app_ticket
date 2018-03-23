@@ -48,21 +48,15 @@ private $title;
 private $description;
 
 /**
-<<<<<<< HEAD
- * @ORM\Column(type="text", length=50)
- */
-private $problemeType;
-=======
- * @ORM\Column(type="choicetype", length=20)
+ * @ORM\Column(type="text", length=20)
  */
 private $probleme;
 
 
 /**
- * @ORM\Column(type="choicetype", length=20)
+ * @ORM\Column(type="datetime", length=20)
  */
 private $date;
->>>>>>> 79dd98e3bc85d42017ba381ebf547dc9f715a3c8
 
     public function getId()
     {
@@ -89,12 +83,6 @@ private $date;
         $this->description = $description;
 	}
 
-<<<<<<< HEAD
-	public function getProblemeType()
-    {
-        return $this->problemeType;
-    }
-=======
     public function getProbleme()
     {
         return $this->probleme;
@@ -113,12 +101,5 @@ private $date;
     public function setDate($date)
     {
         $this->date = $date;
-    }
-
->>>>>>> 79dd98e3bc85d42017ba381ebf547dc9f715a3c8
-
-    public function setProblemeType($problemeType)
-    {
-        $this->problemeType = $problemeType;
     }
 }
