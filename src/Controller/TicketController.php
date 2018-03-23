@@ -36,7 +36,7 @@ $form = $this->createFormBuilder($ticket)
    	->add("description", TextareaType::class, array(
     		'label' => 'Description'
     	))
-   	->add("problemeType", ChoiceType::class, array(
+   	->add("probleme", ChoiceType::class, array(
    		'label' => 'Type de problème',
 	    'choices'  => array(
 	        '' => null,
