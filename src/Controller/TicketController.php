@@ -29,6 +29,8 @@ class TicketController extends Controller
   public function add(Request $request)  
   {
 $ticket = new Ticket();
+$ticket->setDate(new \DateTime('now'));
+$ticket->setUser($this->getUser());
 $form = $this->createFormBuilder($ticket)
     ->add("title", TextType::class, array(
     		'label' => 'Titre'
@@ -40,8 +42,8 @@ $form = $this->createFormBuilder($ticket)
    		'label' => 'Type de problème',
 	    'choices'  => array(
 	        '' => null,
-	        'Problème logiciel' => true,
-	        'Problème matériel' => false,
+	        'Problème logiciel' => 'logiciel',
+	        'Problème matériel' => 'materiel',
 	    )
 	))
     ->add("save", SubmitType::class, ["label" => "Créer le ticket"])

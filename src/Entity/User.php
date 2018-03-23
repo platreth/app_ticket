@@ -25,7 +25,7 @@ class User implements UserInterface
 {
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="user")
      */
     private $tickets;
 

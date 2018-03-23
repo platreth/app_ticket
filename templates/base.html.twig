@@ -20,7 +20,7 @@
                 {% endif %}
 
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <li class="nav-item active"><a href="{{ path('ticket.add') }}" class="nav-link">Tickets</a></li>
+                    <li class="nav-item active"><a href="{{ path('ticket.all') }}" class="nav-link">Tickets</a></li>
                 {% endif %}
 
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}

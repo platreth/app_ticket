@@ -1,5 +1,36 @@
 {% extends "base.html.twig" %}
 {% block body %}
-{{ ticket.title }}
+<section class="container-fluid">
+	<div class="input-group mb-3">
+	  <div class="input-group-prepend">
+	    <span class="input-group-text" id="basic-addon3">Titre</span>
+	  </div>
+	  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+	</div>
+	
+	<div class="input-group mb-3">
+	  <div class="input-group-prepend">
+	    <span class="input-group-text" id="basic-addon3">Émetteur</span>
+	  </div>
+	  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+	</div>
 
+	<div class="input-group mb-3">
+	  <div class="input-group-prepend">
+	    <span class="input-group-text" id="basic-addon3">Émetteur</span>
+	  </div>
+	  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+	</div>
+
+	<div class="input-group mb-3">
+	  <div class="input-group-prepend">
+	    <span class="input-group-text" id="basic-addon3">Émetteur</span>
+	  </div>
+	  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+	</div>
+	
+	<div> Date d'envoi : {{ ticket.date|date('d/m/Y H:i')}} </div>
+	<div> Émetteur : {{ ticket.user.username }} </div>
+	<div> Description : {{ ticket.description }} </div>
+</section>
 {% endblock %}
